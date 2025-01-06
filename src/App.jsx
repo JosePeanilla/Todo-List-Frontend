@@ -1,33 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import TodoAdd from './components/TodoAdd';
+import TodoList from './components/TodoList';
+import useTodo from './hooks/useTodo';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const { 
+        todos,
+        todosCount,
+        pendingTodosCount,
+        handleNewTodo,
+        handleDeleteTodo,
+        handleCompleteTodo,
+        handleUpdateTodo
+   } = useTodo();
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="card-todo">
+        <h1>Lista de tareas</h1>
+        <div className="counter-todos">
+          <h3>
+            Nº de tareas: <span>{todosCount}</span>
+            </h3>
+          <h3>
+            Pendientes: <span>{pendingTodosCount}</span>
+            </h3>
+        </div>
+
+        <div className="add-todo">
+          <h3>Añadir nueva tarea</h3>
+          <TodoAdd handleNewTodo={handleNewTodo}/>
+        </div>
+
+        <TodoList 
+          todos={todos}
+          handleUpdateTodo={handleUpdateTodo}
+          handleDeleteTodo={handleDeleteTodo}
+          handleCompleteTodo={handleCompleteTodo}
+          />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
