@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const TodoList = ({ todos, handleUpdateTodo, handleDeleteTodo, handleCompleteTodo }) => {
     if (!todos || todos.length === 0) {
-        return <p>No hay tareas disponibles.</p>;
+        return <p className="no-todos">No hay tareas disponibles.</p>;
     }
 
     return (

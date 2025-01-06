@@ -189,3 +189,10 @@ form {
 .editing {
     text-decoration: underline;
 }
+
+.no-todos {
+	text-align: center;
+	color: var(--azul);
+	font-size: 24px;
+	margin-top: 40px;
+}
