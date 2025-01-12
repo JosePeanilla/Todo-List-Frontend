@@ -95,22 +95,41 @@ const useTodo = () => {
         }
     };
     
-    const handleUpdateTodo = async (id, title) => {
-        await fetch(`http://localhost:3000/tasks/${id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ 
-                title, 
-                description: "",
-                dueDate: null,
-                status: "TODO",
-                user: null
-            }),
-        });
-        dispatch({ type: "Update Todo", payload: { id, title } });
+    const handleUpdateTodo = async (id, updatedTodo) => {
+        try {
+            console.log("Intentando enviar datos al backend:", updatedTodo);
+    
+            const response = await fetch(`http://localhost:3000/tasks/${id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(updatedTodo),
+            });
+    
+            if (!response.ok) {
+                throw new Error(`Error al actualizar la tarea: ${response.status}`);
+            }
+    
+            const { task } = await response.json();
+    
+            console.log("Respuesta recibida del backend:", task);
+    
+            dispatch({
+                type: "Update Todo",
+                payload: {
+                    id: task.id,
+                    title: task.title,
+                    description: task.description,
+                    dueDate: task.dueDate,
+                },
+            });
+        } catch (error) {
+            console.error("Error al conectar con el backend:", error);
+        }
     };
+    
+    
 
     return {
         todos,

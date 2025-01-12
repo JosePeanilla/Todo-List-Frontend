@@ -12,13 +12,12 @@ const todoReducer = (initialState, action) => {
         case "Delete Todo":
             return initialState.filter((todo) => todo.id !== action.payload);
 
-            case "Complete Todo":
-    return initialState.map(todo =>
-        todo.id === action.payload._id || todo.id === action.payload.id
-            ? { ...todo, status: action.payload.status } 
-            : todo
-    );
-                
+        case "Complete Todo":
+            return initialState.map(todo =>
+                todo.id === action.payload._id || todo.id === action.payload.id
+                    ? { ...todo, status: action.payload.status } 
+                    : todo
+            );              
                 
         case "Update Todo":
             return initialState.map((todo) =>

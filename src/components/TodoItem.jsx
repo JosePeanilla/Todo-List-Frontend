@@ -4,12 +4,13 @@ import PropTypes from "prop-types";
 
 const TodoItem = ({ todo, handleUpdateTodo, handleDeleteTodo, handleCompleteTodo }) => {
     const handleCompleteClick = () => handleCompleteTodo(todo.id);
-    console.log("Todo ID:", todo.id, "Status:", todo.status);
 
     return (
-        <li>
+        <li className={todo.status === "DONE" ? "completed" : ""}>
             <span onClick={handleCompleteClick}>
-            <label className={`container-done ${todo.status === "DONE" ? "active" : ""}`}></label>
+                <label
+                    className={`container-done ${todo.status === "DONE" ? "active" : ""}`}
+                ></label>
             </span>
             <TodoUpdate todo={todo} handleUpdateTodo={handleUpdateTodo} />
             <button className="btn-delete" onClick={() => handleDeleteTodo(todo.id)}>
@@ -24,7 +25,7 @@ TodoItem.propTypes = {
         id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
         title: PropTypes.string,
         status: PropTypes.string,
-        done: PropTypes.bool, 
+        done: PropTypes.bool,
     }).isRequired,
     handleUpdateTodo: PropTypes.func.isRequired,
     handleDeleteTodo: PropTypes.func.isRequired,
