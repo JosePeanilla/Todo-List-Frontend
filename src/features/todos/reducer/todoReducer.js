@@ -1,8 +1,6 @@
 const todoReducer = (initialState, action) => {
     switch (action.type) {
-       case "Load Todos":
-            return action.payload;
-
+        case "Load Todos":
         case "SET_TODOS":
             return action.payload;
 
@@ -10,17 +8,17 @@ const todoReducer = (initialState, action) => {
             return [...initialState, action.payload];
 
         case "Delete Todo":
-            return initialState.filter((todo) => todo.id !== action.payload);
+            return initialState.filter(todo => todo.id !== action.payload);
 
         case "Complete Todo":
             return initialState.map(todo =>
                 todo.id === action.payload._id || todo.id === action.payload.id
-                    ? { ...todo, status: action.payload.status } 
+                    ? { ...todo, status: action.payload.status }
                     : todo
-            );              
-                
+            );
+
         case "Update Todo":
-            return initialState.map((todo) =>
+            return initialState.map(todo =>
                 todo.id === action.payload.id
                     ? { ...todo, title: action.payload.title }
                     : todo
@@ -29,6 +27,6 @@ const todoReducer = (initialState, action) => {
         default:
             return initialState;
     }
-}
+};
 
-export default todoReducer
+export default todoReducer;
