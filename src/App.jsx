@@ -59,7 +59,7 @@ function App() {
         handleCompleteTodo={handleCompleteTodo}
       />
 
-      <button onClick={logout} className="btn-add" style={{ marginTop: '2rem' }}>
+      <button onClick={logout} className="btn-add btn-logout" style={{ marginTop: '2rem' }}>
         Cerrar sesión
       </button>
     </div>

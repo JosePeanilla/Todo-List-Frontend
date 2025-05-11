@@ -82,6 +82,11 @@ h1 {
   background-color: var(--primary-hover);
 }
 
+.btn-logout {
+  display: block;
+  margin: 2rem auto 0; /* 2rem arriba, auto izquierda/derecha */
+}
+
 /* -------------------- RESPONSIVE -------------------- */
 @media (max-width: 992px) {
   .card-todo {
