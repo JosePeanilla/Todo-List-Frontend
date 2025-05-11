@@ -1,14 +1,17 @@
 // src/App.jsx
+import { useState } from "react";
 import './App.css';
 import TodoAdd from './features/todos/components/TodoAdd';
 import TodoList from './features/todos/components/TodoList';
 import useTodo from './features/todos/hooks/useTodo';
 import useAuth from './features/auth/hooks/useAuth';
 import LoginForm from './features/auth/components/LoginForm';
-import RegisterForm from './features/auth/components/RegisterForm'; // opcional
+import RegisterForm from './features/auth/components/RegisterForm';
 
 function App() {
   const { user, logout } = useAuth();
+  const [isRegistering, setIsRegistering] = useState(false);
+
   const {
     todos,
     todosCount,
@@ -22,9 +25,15 @@ function App() {
   if (!user) {
     return (
       <div className="card-todo">
-        <h1>Iniciar sesión</h1>
-        <LoginForm />
-        {/* <RegisterForm /> <- Si quieres mostrar ambos */}
+        <h1>{isRegistering ? "Registro" : "Iniciar sesión"}</h1>
+        {isRegistering ? <RegisterForm /> : <LoginForm />}
+        <button
+          onClick={() => setIsRegistering(!isRegistering)}
+          className="btn-add"
+          style={{ marginTop: '2rem' }}
+        >
+          {isRegistering ? "Ya tienes cuenta? Inicia sesión" : "¿No tienes cuenta? Regístrate"}
+        </button>
       </div>
     );
   }
@@ -34,12 +43,8 @@ function App() {
       <h1>Lista de tareas</h1>
 
       <div className="counter-todos">
-        <h3>
-          Nº de tareas: <span>{todosCount}</span>
-        </h3>
-        <h3>
-          Pendientes: <span>{pendingTodosCount}</span>
-        </h3>
+        <h3>Nº de tareas: <span>{todosCount}</span></h3>
+        <h3>Pendientes: <span>{pendingTodosCount}</span></h3>
       </div>
 
       <div className="add-todo">

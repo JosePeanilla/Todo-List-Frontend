@@ -22,8 +22,12 @@ const LoginForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="email" name="email" onChange={handleChange} required />
-            <input type="password" name="password" onChange={handleChange} required />
+            <label htmlFor="email">Email</label>
+            <input id="email" type="email" name="email" onChange={handleChange} required />
+
+            <label htmlFor="password">Contraseña</label>
+            <input id="password" type="password" name="password" onChange={handleChange} required />
+
             {error && <p>{error}</p>}
             <button type="submit">Iniciar sesión</button>
         </form>

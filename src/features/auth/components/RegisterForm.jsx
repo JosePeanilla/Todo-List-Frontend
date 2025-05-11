@@ -21,14 +21,23 @@ const RegisterForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input name="firstName" onChange={handleChange} required />
-            <input name="lastName" onChange={handleChange} required />
-            <input name="email" onChange={handleChange} required />
-            <input type="password" name="password" onChange={handleChange} required />
+            <label htmlFor="firstName">Nombre</label>
+            <input id="firstName" name="firstName" onChange={handleChange} required />
+
+            <label htmlFor="lastName">Apellido</label>
+            <input id="lastName" name="lastName" onChange={handleChange} required />
+
+            <label htmlFor="email">Email</label>
+            <input id="email" name="email" onChange={handleChange} required />
+
+            <label htmlFor="password">Contraseña</label>
+            <input id="password" type="password" name="password" onChange={handleChange} required />
+
             {success && <p>{success}</p>}
             {error && <p>{error}</p>}
             <button type="submit">Registrarse</button>
         </form>
+
     );
 };
 
