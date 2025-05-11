@@ -32,7 +32,7 @@ function App() {
           className="btn-add"
           style={{ marginTop: '2rem' }}
         >
-          {isRegistering ? "Ya tienes cuenta? Inicia sesión" : "¿No tienes cuenta? Regístrate"}
+          {isRegistering ? "¿Ya tienes cuenta? Inicia sesión" : "¿No tienes cuenta? Regístrate"}
         </button>
       </div>
     );

@@ -1,6 +1,7 @@
 import { BsTrash3Fill } from "react-icons/bs";
 import TodoUpdate from "./TodoUpdate";
 import PropTypes from "prop-types";
+import "./TodoItem.css";
 
 const TodoItem = ({ todo, handleUpdateTodo, handleDeleteTodo, handleCompleteTodo }) => {
   const handleCompleteClick = () => handleCompleteTodo(todo.id);

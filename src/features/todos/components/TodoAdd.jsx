@@ -1,5 +1,6 @@
 import useForm from "../hooks/useForm";
 import PropTypes from "prop-types";
+import './TodoAdd.css';
 
 const TodoAdd = ({ handleNewTodo }) => { 
     const { title, description, dueDate, onInputChange, onResetForm } = useForm({

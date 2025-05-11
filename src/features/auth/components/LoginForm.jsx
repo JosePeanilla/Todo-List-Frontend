@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { loginUser } from "../services/authService";
 import useAuth from "../hooks/useAuth"; 
+import "./LoginForm.css";
 
 const LoginForm = () => {
     const { login } = useAuth();

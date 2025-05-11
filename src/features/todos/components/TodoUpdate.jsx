@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { GrEdit } from "react-icons/gr";
 import PropTypes from "prop-types";
 import useForm from "../hooks/useForm";
+import "./TodoUpdate.css";
 
 const TodoUpdate = ({ todo, handleUpdateTodo, children }) => {
   const { title, description, dueDate, onInputChange } = useForm({
