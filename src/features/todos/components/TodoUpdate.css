@@ -1,0 +1,44 @@
+.input-update {
+  border: none;
+  border-bottom: 1px solid var(--primary);
+  font-size: 16px;
+  color: var(--text-main);
+  background-color: transparent;
+  outline: none;
+  padding: 6px 0;
+}
+
+textarea.input-update {
+  resize: none;
+  min-height: 100px;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.editing {
+  text-decoration: underline;
+}
+
+.todo-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.btn-edit {
+  color: var(--primary);
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn-edit:hover {
+  color: var(--primary-hover);
+}

@@ -1,5 +1,6 @@
 import TodoItem from "./TodoItem";
 import PropTypes from "prop-types";
+import "./TodoList.css";
 
 const TodoList = ({ todos, handleUpdateTodo, handleDeleteTodo, handleCompleteTodo }) => {
     if (!todos || todos.length === 0) {
